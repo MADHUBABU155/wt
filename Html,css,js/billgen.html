@@ -1,0 +1,288 @@
+<html>
+<head>
+  <title>Restaurant Bill Generator</title>
+  <style>
+	.card {
+	width: 400px;
+	margin: 50px auto;
+	background-color:#2cee9d;
+	padding: 30px;
+	border-radius: 5px;
+	box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+   
+
+.shadow {
+            box-shadow: inset 0 -3em 3em rgba(0,0,0,0.1),
+                0 0  0 2px rgb(190, 190, 190),
+                0.3em 0.3em 1em rgba(0,0,0,0.3);
+}
+   
+textarea
+{
+    width:350px;
+    height:auto;
+    border: none;
+    resize: none;
+    color:#2f2f2f;
+}
+input[type="submit"]:hover{
+
+    background-color: #c08585;
+    color:#ffffff;
+}
+
+.mybutton{
+    margin-top: 20px;
+    margin-left: 150px;
+    padding: 10px;
+	background-color: #259ade;
+	color: #fff;
+	border: none;
+	border-radius: 5px;
+	cursor: pointer;
+	box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+	transition: background-color 0.3s;
+}
+b{
+    margin-left: 2px;
+}
+.container{
+    text-align: center;
+    display: flex;
+    justify-content: center;
+}
+
+.but{
+
+    display: flex;
+    justify-content: center;
+}
+
+.bill2{
+    margin-left: 10px;
+}
+.bill3{
+    margin-left: 0px;
+}
+.cart{
+    margin-top: 80px;
+}
+button:hover{
+    background-color: #ffffff;
+    color:#416a59
+}
+.menu
+{
+    width:180px;
+    padding: 10px;
+    border-radius: 10px;    
+    border: 1.5px solid lightgrey;
+    
+}
+.input{
+    margin-bottom: 30px;
+    height:45px;
+    padding: 10px;
+    border-radius: 10px;
+    border: 1.5px solid lightgrey;
+}
+#r{
+  display:none;
+  position:relative;
+  right:-25%;
+  margin-top: 20px;
+}
+  </style>
+</head>
+<body bgcolor="#fref8a">
+	  <h1 style="text-align: center; color:#c90c0c"><u>Restaurant Bill Generator</u></h1>
+	<div class="container">
+	  <div class="card shadow">
+		<h1>&nbsp;Menu</h1>
+		<div class="cart">
+		<form class="bill1">
+			<b>&ensp;Item </b>
+			&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;
+			<select id="sf" class="Menu">
+				<option value="0">None</option>
+				<option value="Chicken555">Chicken 555</option>
+				<option value="DragonChicken">Dragon Chicken</option>
+				<option value="Chicken65">Chicken 65</option>
+				<option value="ChickenDum">Chicken Dum</option>
+				<option value="ChickenMughalai">Chicken Mughalai</option>
+				<option value="ChickenLollipop">Chicken Lollipop</option>
+				<option value="Thumbsup">Thumbs up</option>
+				<option value="Soda">Soda</option>
+				<option value="EnergyDrink">Energy Drink</option>
+				<option value="CheeseCake">Cheese Cake</option>
+				<option value="RedWalvetCake">Red Walvet Cake</option>
+				<option value="ChocolateCake">Chocolate Cake</option>
+			</select>
+			<br>
+			<br>
+			&ensp;<b>QUANTITY</b>
+			&ensp;			
+			<input type="text" id="entrybox" pattern="\d*" name="text" class="input" placeholder="QUANTITY">
+			&ensp;
+			<br>
+
+			<input type="button" value="ADD T0 CART" class="mybutton" id="getme">
+		</form>
+	</div>
+		</div>
+		<br><br>
+		<div class=" card">
+			<h2><u>Bill</u></h2>
+		<textarea class="bill" cols="90" rows="12" id="writeme" name="box">
+      
+    </textarea>
+		<br>
+		<br>
+		<div class="but">
+		<input type="submit" value="Clear Cart" class="mybutton bill3" id="clr">
+		<input type="submit" value="PAY BILL" class="mybutton bill2" id="out">
+		</div>
+    <img src="qr.png"  id="r" width="200px" height="200px">
+    
+
+</div>
+</div>
+	<script >
+		var Chicken555= 220;
+var DragonChicken= 240;
+var Chicken65= 220;
+var ChickenDum = 180;
+var ChickenMughalai= 240;
+var ChickenLollipop = 220;
+var Thumbsup=50;
+var EnergyDrink=90;
+var Soda=20;
+var EnergyDrink=90;
+var CheeseCake=90;
+var RedWalvetCake=110;
+var ChocolateCake=80;
+var total = 0;
+var check = 1;
+var gw;
+var sfruit;
+var quan;
+var adder = document.querySelector("#getme");
+adder.addEventListener("click", getMe);
+var by = document.querySelector("#out");
+by.addEventListener("click", checkOut);
+var cme = document.querySelector("#clr");
+cme.addEventListener("click", clearMe);
+
+function getMe() {
+  sfruit = document.querySelector("#sf").value;
+  quan = parseFloat(document.querySelector("#entrybox").value);
+  gw = document.querySelector("#writeme");
+  if (Number.isNaN(quan) === true) {
+    alert("Only Numbers !!! Or The Field is Empty");
+    check = 0;
+  }
+  else if (quan<0) {
+    alert("Negative value!! @stupid");
+    check = 0;
+  }
+  else{
+    check = 1;
+  }
+  if (check == 1) {
+ 
+    switch (sfruit) {
+      case "Chicken555":
+        var st = Chicken555 * quan;
+        gw.value += "Chicken 555 " + quan + " Quan =  " + st + " rs\r";
+        total += st;
+        quan.value = "";
+        break;
+      case "DragonChicken":
+        var at = DragonChicken * quan;
+        gw.value += "Dragon Chicken " + quan + " Quan =  " + at + " rs\r";
+        total += at;
+        quan.value = "";
+        break;
+      case "Chicken65":
+        var gr = Chicken65 * quan;
+        gw.value += "Chicken 65 " + quan + " Quan  =  " + gr + " rs\r";
+        total += gr;
+        quan.value = "";
+        break;
+      case "ChickenMughalai":
+        var ga = ChickenMughalai* quan;
+        gw.value += "Chicken Mughalai Biryani " + quan + " Quan  =  " + ga + " RS\r";
+        total += ga;
+        quan.value = "";
+        break;
+      case "ChickenDum":
+        var pomy = ChickenDum * quan;
+        gw.value += "Chicken Dum Biryani " + quan + " Quan  =  " + pomy + " rs\r";
+        total += pomy;
+        quan.value = "";
+        break;
+      case "ChickenLollipop":
+        var pomy = ChickenLollipop * quan;
+        gw.value += "Chicken Lollipop Biryani " + quan + " Quan  =  " + pomy + " rs\r";
+        total += pomy;
+        quan.value = "";
+        break;
+      case "Thumbsup":
+        var pomy = Thumbsup * quan;
+        gw.value += "Thumbs up " + quan + " Quan  =  " + pomy + " rs\r";
+        total += pomy;
+        quan.value = "";
+        break;
+      case "Soda":
+        var pomy = Soda * quan;
+        gw.value += "Soda " + quan + " Quan  =  " + pomy + " rs\r";
+        total += pomy;
+        quan.value = "";
+        break;
+      case "EnergyDrink":
+        var pomy = EnergyDrink * quan;
+        gw.value += "Energy Drinks " + quan + " Quan  =  " + pomy + " rs\r";
+        total += pomy;
+        quan.value = "";
+        break;
+      case "CheeseCake":
+        var pomy = CheeseCake * quan;
+        gw.value += "Cheese Cake " + quan + " Quan  =  " + pomy + " rs\r";
+        total += pomy;
+        quan.value = "";
+        break;
+      case "RedWalvetCake":
+        var pomy = RedWalvetCake * quan;
+        gw.value += "Red Walvet Cake " + quan + " Quan  =  " + pomy + " rs\r";
+        total += pomy;
+        quan.value = "";
+        break;
+      case "ChocolateCake":
+        var pomy = ChocolateCake * quan;
+        gw.value += "Chocolat eCake " + quan + " Quan  =  " + pomy + " rs\r";
+        total += pomy;
+        quan.value = "";
+      break;
+    }
+
+  }
+}
+
+function checkOut() {
+  gw.value += "----------------------------------------------\r";
+  gw.value += "Your Total Bill Is = " + total + " rs Thanks For Visiting :)\r";
+  gw.value += "----------------------------------------------\r";
+  total = 0;
+}
+function clearMe () {
+  gw.value = "";
+}
+document.getElementById('out').addEventListener('click',function(){
+  document.getElementById('r').style.display="block";
+})
+
+	</script>
+
+</body>
+</html>
