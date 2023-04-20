@@ -1,0 +1,51 @@
+<html>
+ <head>
+  <link rel="StyleSheet" href="login.css">
+ </head>
+ <body>
+  <br>
+  <form name="f1" action="reg.php" method="post" enctype="multipart/form-data">
+  <div>
+   <table style="margin-left:800px;" class="t" align="center">
+    <tr>
+        <td colspan="2"><h2>Register Here</h2></td>    
+    </tr>
+    <tr>
+     <td colspan="2"><input class="inp" type="text" name="nm" placeholder="Name" style="width: 350px;" required></td>
+    </tr>
+    <tr>
+        <td colspan="2"><input class="inp" type="text" name="un" placeholder="User name" style="width: 350px;" required></td>
+       </tr>
+    <tr>
+     <td colspan="2"><input class="inp" type="email" name="em" placeholder="Email" style="width: 350px;" required></td>
+    </tr>
+    <tr>
+     <td colspan="2"><input class="inp" type="password" name="pwd" placeholder="Password" style="width: 350px;" required></td>
+    </tr>
+    <tr>
+     <td>Date of birth</td>
+     <td><input class="inp" type="date" name="dt" required></td>
+    </tr>
+    <tr>
+     <td>Gender</td>
+     <td><input class="inp" type="radio" name="gn" value="Male">Male<input class="inp" type="radio" name="gn" value="Female">Female</td>
+    </tr>
+    <tr>
+                <td>Profile Photo</td>
+               <td>
+                   <input class="inp" type="file" name="image" id="image">
+               </td>
+           </tr>
+    <tr> 
+     <td><input class="sub" name="sub" type="submit" value="Submit"></td>
+     <td><input class="sub" type="reset"></td>
+    </tr>
+    <tfoot>
+    <tr>
+        <td colspan="2">Already have an account? <a href="login.html">Login</a></td>
+    </tr></tfoot>
+   </table>
+  </div>
+  </form>
+ </body>
+</html>

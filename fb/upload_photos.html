@@ -1,0 +1,51 @@
+<html>
+<head>
+    <style>
+        tr{
+    text-align: center;
+    color:blue;
+}
+input{
+    border-color:rgb(239, 69, 84);
+    background-color:rgb(195, 240, 244);
+    padding-bottom:10px;
+    margin: 10px;
+    width: auto;
+    height: auto;
+    text-align: center;
+    padding-top:10px;
+    font-size:15px;
+    color:darkorchid;
+}
+.sub{
+    width:175px;
+    font-size: medium;
+    color:black;
+    height: 25px;
+    background-color:#8c09e3;
+    padding-bottom:30px;
+}
+
+.sub:hover,.sub:focus,.sub:visited{
+    background-color:beige;
+}
+.inp:hover,.inp:focus,.inp:visited{
+    background-color:beige;
+}
+    </style>
+</head>
+<body style="background-color:beige">
+<br><br><br>
+<form action="post.php" method="post" enctype="multipart/form-data">
+    <table align="center">
+    <tr>
+    <td><input class="inp" type="file" name="photo"></td></tr><tr>
+        <tr><br></tr>
+        <tr><br></tr>
+        <tr><br></tr>
+    <td><input class="sub" type="submit" value="Upload"></td>
+    </tr>
+    </table>
+</form>
+</body>
+</html>
